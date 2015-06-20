@@ -1,0 +1,29 @@
+﻿@{
+    if (@ViewBag.Title == null)
+    {
+        ViewBag.Title = "Agenda";
+    }
+    else
+    {
+        ViewBag.Title = "Agenda - " + ViewBag.Title;
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <h1>@ViewBag.Title</h1>
+    <hr/>
+    @Html.ActionLink("Professores", "Index", "Professores") |
+    @Html.ActionLink("Professores", "Index", "Cursos") |
+    @Html.ActionLink("Professores", "Index", "Turmas")
+    <hr />
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
