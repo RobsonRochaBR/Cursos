@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Agenda.Dados;
@@ -6,7 +7,6 @@ using Agenda.Web.Filters;
 
 namespace Agenda.Web.Controllers
 {
-    //[Log]
     public class ProfessoresController : Controller
     {
         private readonly AgendaContext _contexto;
@@ -29,7 +29,7 @@ namespace Agenda.Web.Controllers
         }
 
         // POST: Professores/Cadastrar
-        [Log]
+        //[Log]
         [HttpPost]
         public ActionResult Cadastrar(Professor professor)
         {
@@ -45,7 +45,11 @@ namespace Agenda.Web.Controllers
         // GET: Professores/Editar
         public ActionResult Editar(int id)
         {
-            return View(_contexto.Professores.Find(id));
+            var professor = _contexto.Professores.Find(id);
+            if(professor == null)
+                return new HttpNotFoundResult();
+                //throw new ArgumentException($"Não foi encontrado nenhum professor com o {nameof(id)} {id}", nameof(id));
+            return View(professor);
         }
 
         // POST: Professores/Cadastrar

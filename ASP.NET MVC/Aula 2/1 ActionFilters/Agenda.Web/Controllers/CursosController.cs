@@ -5,6 +5,8 @@ using Agenda.Dados;
 
 namespace Agenda.Web.Controllers
 {
+    //[OverrideActionFilters]
+    //[OverrideResultFilters]
     public class CursosController : Controller
     {
         private readonly AgendaContext _contexto;

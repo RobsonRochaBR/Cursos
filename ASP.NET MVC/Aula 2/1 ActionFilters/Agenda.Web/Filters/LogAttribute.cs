@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace Agenda.Web.Filters
 {
-    public class LogAttribute : FilterAttribute, IActionFilter, IResultFilter
+    public class LogAttribute : FilterAttribute, IActionFilter, IResultFilter, IExceptionFilter
     {
         #region Log
         private void Log(string message, [CallerMemberName] string methodName = null)
@@ -26,6 +26,7 @@ namespace Agenda.Web.Filters
         }
         #endregion
 
+        #region IResultFilter
         public void OnResultExecuting(ResultExecutingContext filterContext)
         {
             Log($"Iniciando processamento do resultado de tipo '{filterContext.Result.GetType().Name}'...");
@@ -35,5 +36,13 @@ namespace Agenda.Web.Filters
         {
             Log($"Processamento do resultado de tipo '{filterContext.Result.GetType().Name}' finalizada!");
         }
+        #endregion
+
+        #region IExceptionFilter
+        public void OnException(ExceptionContext filterContext)
+        {
+            Log($"Ocorreu uma exceção do tipo '{filterContext.Exception.GetType().Name}': '{filterContext.Exception.Message}'!");
+        }
+        #endregion
     }
 }

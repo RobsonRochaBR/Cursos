@@ -2,10 +2,12 @@
 using System.Linq;
 using System.Web.Mvc;
 using Agenda.Dados;
+using Agenda.Web.Filters;
 using Agenda.Web.Models;
 
 namespace Agenda.Web.Controllers
 {
+    //[Log]
     public class TurmasController : Controller
     {
         private readonly AgendaContext _contexto;
