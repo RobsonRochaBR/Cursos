@@ -1,0 +1,39 @@
+﻿@using Agenda.Dados
+@model Aluno
+@{
+    ViewBag.Title = "Cadastrar novo aluno";
+}
+@using(Html.BeginForm()) {
+    <fieldset>
+        <div>
+            <div>@Html.LabelFor(m => m.Nome):</div>
+            <div>
+                @Html.TextBoxFor(m => m.Nome)
+                @Html.ValidationMessageFor(m => m.Nome)
+            </div>
+        </div>
+        <div>
+            <div>@Html.LabelFor(m => m.EMail):</div>
+            <div>
+                @Html.TextBoxFor(m => m.EMail)
+                @Html.ValidationMessageFor(m => m.EMail)
+            </div>
+        </div>
+        <div>
+            <div>@Html.LabelFor(m => m.DataNascimento):</div>
+            <div>
+                @Html.TextBoxFor(m => m.DataNascimento)
+                @Html.ValidationMessageFor(m => m.DataNascimento)
+            </div>
+        </div>
+
+        @Html.EditorFor(m => m.EnderecoPrincipal, new {TituloEndereco = "Endereço Principal"})
+
+        @for (int i = 0, l = (Model != null && Model.EnderecosAdicionais != null ? Model.EnderecosAdicionais.Count : 0); i < l; i++)
+        {
+            @Html.EditorFor(m => m.EnderecosAdicionais[i], new { TituloEndereco = "Endereço Adicional " + (i+1) })
+        }
+        <button type="submit">Gravar</button>
+    </fieldset>
+    @Html.ActionLink("Voltar", "Index")
+}

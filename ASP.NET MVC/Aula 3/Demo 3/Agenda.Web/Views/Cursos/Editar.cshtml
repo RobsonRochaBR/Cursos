@@ -1,0 +1,33 @@
+﻿@using Agenda.Dados
+@model Curso
+@{
+    ViewBag.Title = "Editar curso";
+}
+@using(Html.BeginForm()) {
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <div>
+            <div>@Html.LabelFor(m => m.Nome):</div>
+            <div>
+                @Html.TextBoxFor(m => m.Nome)
+                @Html.ValidationMessageFor(m => m.Nome)
+            </div>
+        </div>
+        <div>
+            <div>@Html.LabelFor(m => m.Descricao):</div>
+            <div>
+                @Html.TextBoxFor(m => m.Descricao)
+                @Html.ValidationMessageFor(m => m.Descricao)
+            </div>
+        </div>
+        <div>
+            <div>@Html.LabelFor(m => m.CargaHorariaHoras):</div>
+            <div>
+                @Html.TextBoxFor(m => m.CargaHorariaHoras)
+                @Html.ValidationMessageFor(m => m.CargaHorariaHoras)
+            </div>
+        </div>
+        <button type="submit">Gravar</button>
+    </fieldset>
+@Html.ActionLink("Voltar", "Index")
+}

@@ -1,0 +1,51 @@
+﻿@using Agenda.Dados
+@model IEnumerable<Aluno>
+@{
+    ViewBag.Title = "Lista de Alunos";
+}
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (!Model.Any())
+    {
+        <tr>
+            <td colspan="3">Nenhum aluno cadastrado</td>
+        </tr>
+    }
+    @foreach (Aluno aluno in Model)
+    {
+        <tr>
+            <td>@aluno.Nome</td>
+            <td>@aluno.EMail</td>
+            <td>@Html.ActionLink("Editar", "Editar", new {aluno.Id}) | <a href="javascript:excluir('@aluno.Nome', '@aluno.Id')">Excluir</a></td>
+        </tr>
+    }
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3">@Html.ActionLink("Cadastrar novo aluno", "Cadastrar")</td>
+    </tr>
+    </tfoot>
+</table>
+
+@using (Html.BeginForm("Excluir", null, null, FormMethod.Post, new {id = "formExcluir"}))
+{
+    @Html.Hidden("id", null, new{id="alunoId"})
+}
+
+<script language="javascript">
+    function excluir(nome, id) {
+        if (confirm("Você tem certeza que deseja excluir o aluno '" + nome + "'? Esta ação não poderá ser desfeita!")) {
+            var alunoId = document.getElementById("alunoId");
+            var formExcluir = document.getElementById("formExcluir");
+            alunoId.value = id;
+            formExcluir.submit();
+        }
+    }
+</script>

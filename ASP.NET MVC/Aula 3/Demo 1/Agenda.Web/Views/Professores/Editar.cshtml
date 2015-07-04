@@ -1,0 +1,26 @@
+﻿@using Agenda.Dados
+@model Professor
+@{
+    ViewBag.Title = "Editar professor";
+}
+@using(Html.BeginForm()) {
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <div>
+            <div>Nome:</div>
+            <div>
+                @Html.TextBoxFor(m => m.Nome)
+                @Html.ValidationMessageFor(m => m.Nome)
+            </div>
+        </div>
+        <div>
+            <div>E-Mail:</div>
+            <div>
+                @Html.TextBoxFor(m => m.EMail, new {type = "email"})
+                @Html.ValidationMessageFor(m => m.EMail)
+            </div>
+        </div>
+        <button type="submit">Gravar</button>
+    </fieldset>
+@Html.ActionLink("Voltar", "Index")
+}

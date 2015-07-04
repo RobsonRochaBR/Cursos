@@ -1,0 +1,48 @@
+﻿@using Agenda.Web.Models
+@model CadastrarEditarTurmaModel
+@{
+    ViewBag.Title = "Editar turma";
+}
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Turma.Id)
+        <div>
+            <div>Nome:</div>
+            <div>
+                @Html.TextBoxFor(m => m.Turma.Nome)
+                @Html.ValidationMessageFor(m => m.Turma.Nome)
+            </div>
+        </div>
+        <div>
+            <div>Curso:</div>
+            <div>
+                @Html.DropDownListFor(m => m.Turma.CursoId, Model.Cursos.Select(c => new SelectListItem{Text = c.Nome, Value = c.Id.ToString(), Selected = c.Id == Model.Turma.CursoId}))
+                @Html.ValidationMessageFor(m => m.Turma.CursoId)
+            </div>
+        </div>
+        <div>
+            <div>Data de Início:</div>
+            <div>
+                @Html.TextBoxFor(m => m.Turma.DataInicio, new{type="date"})
+                @Html.ValidationMessageFor(m => m.Turma.DataInicio)
+            </div>
+        </div>
+        <div>
+            <div>Local:</div>
+            <div>
+                @Html.TextBoxFor(m => m.Turma.Local)
+                @Html.ValidationMessageFor(m => m.Turma.Local)
+            </div>
+        </div>
+        <div>
+            <div>Professor:</div>
+            <div>
+                @Html.DropDownListFor(m => m.Turma.ProfessorId, Model.Professores.Select(p => new SelectListItem { Text = p.Nome, Value = p.Id.ToString(), Selected = p.Id == Model.Turma.ProfessorId}))
+                @Html.ValidationMessageFor(m => m.Turma.ProfessorId)
+            </div>
+        </div>
+        <button type="submit">Gravar</button>
+    </fieldset>
+    @Html.ActionLink("Voltar", "Index")
+}

@@ -1,0 +1,32 @@
+﻿@using Agenda.Dados
+@model Curso
+@{
+    ViewBag.Title = "Cadastrar novo curso";
+}
+@using(Html.BeginForm()) {
+<fieldset>
+    <div>
+        <div>Nome:</div>
+        <div>
+            @Html.TextBoxFor(m => m.Nome)
+            @Html.ValidationMessageFor(m => m.Nome)
+        </div>
+    </div>
+    <div>
+        <div>Descrição:</div>
+        <div>
+            @Html.TextBoxFor(m => m.Descricao)
+            @Html.ValidationMessageFor(m => m.Descricao)
+        </div>
+    </div>
+    <div>
+        <div>Carga Horária:</div>
+        <div>
+            @Html.TextBoxFor(m => m.CargaHorariaHoras, new{type="time"})
+            @Html.ValidationMessageFor(m => m.CargaHorariaHoras)
+        </div>
+    </div>
+    <button type="submit">Gravar</button>
+</fieldset>
+@Html.ActionLink("Voltar", "Index")
+}
