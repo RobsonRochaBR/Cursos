@@ -1,0 +1,57 @@
+﻿@using Agenda.Dados
+@model IEnumerable<Turma>
+@{
+    ViewBag.Title = "Lista de Turmas";
+}
+<table>
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.Curso)</th>
+        <th>@Html.DisplayNameFor(m => m.Nome)</th>
+        <th>@Html.DisplayNameFor(m => m.DataInicio)</th>
+        <th>@Html.DisplayNameFor(m => m.Local)</th>
+        <th>@Html.DisplayNameFor(m => m.Professor)</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (!Model.Any())
+    {
+        <tr>
+            <td colspan="6">Nenhum turma cadastrado</td>
+        </tr>
+    }
+    @foreach (Turma turma in Model)
+    {
+        <tr>
+            <td>@turma.Curso.Nome</td>
+            <td>@turma.Nome</td>
+            <td>@turma.DataInicio</td>
+            <td>@turma.Local</td>
+            <td>@turma.Professor.Nome</td>
+            <td>@Html.ActionLink("Editar", "Editar", new {turma.Id}) | <a href="javascript:excluir('@turma.Nome', '@turma.Id')">Excluir</a></td>
+        </tr>
+    }
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="6">@Html.ActionLink("Cadastrar nova turma", "Cadastrar")</td>
+    </tr>
+    </tfoot>
+</table>
+
+@using (Html.BeginForm("Excluir", null, null, FormMethod.Post, new {id = "formExcluir"}))
+{
+    @Html.Hidden("id", null, new{id="turmaId"})
+}
+
+<script language="javascript">
+    function excluir(nome, id) {
+        if (confirm("Você tem certeza que deseja excluir a turma '" + nome + "'? Esta ação não poderá ser desfeita!")) {
+            var turmaId = document.getElementById("turmaId");
+            var formExcluir = document.getElementById("formExcluir");
+            turmaId.value = id;
+            formExcluir.submit();
+        }
+    }
+</script>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda.Dados", "Agenda.Dados\Agenda.Dados.csproj", "{C4528738-84C2-4CC7-8D81-0C5A67648DA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda.Web", "Agenda.Web\Agenda.Web.csproj", "{B6BAEC69-7F75-482E-8458-4D1E57B9C78C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4528738-84C2-4CC7-8D81-0C5A67648DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4528738-84C2-4CC7-8D81-0C5A67648DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4528738-84C2-4CC7-8D81-0C5A67648DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4528738-84C2-4CC7-8D81-0C5A67648DA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6BAEC69-7F75-482E-8458-4D1E57B9C78C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6BAEC69-7F75-482E-8458-4D1E57B9C78C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6BAEC69-7F75-482E-8458-4D1E57B9C78C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6BAEC69-7F75-482E-8458-4D1E57B9C78C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
