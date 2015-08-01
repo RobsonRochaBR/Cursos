@@ -1,0 +1,42 @@
+﻿@{
+    @*Formata o título da página*@
+    if (@ViewBag.Title == null)
+    {
+        ViewBag.Title = "Agenda";
+    }
+    else
+    {
+        ViewBag.Title = "Agenda - " + ViewBag.Title;
+    }
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+        <h1>@ViewBag.Title</h1>
+        <hr/>
+        @if (TempData.ContainsKey("Mensagem"))
+        {
+            <div>@TempData["Mensagem"]</div>
+        }
+        <ul>
+            @Html.Partial("~/Views/Shared/_itensMenu.cshtml")
+            @RenderSection("LinksAdicionais", false)
+        </ul>
+        <hr/>
+        <div>
+            @RenderBody()
+        </div>
+        @*<link href="~/Content/Styles/Site.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+        <script language="javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+        <script language="javascript" src="//ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>*@
+
+        @Styles.Render("~/bundles/css")
+        @Scripts.Render("~/bundles/js")
+
+    </body>
+</html>

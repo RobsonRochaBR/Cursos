@@ -1,0 +1,19 @@
+﻿@helper Saudacoes()
+{
+    TimeSpan hora = DateTime.Now.TimeOfDay;
+    TimeSpan inicioManha = new TimeSpan(6, 0, 0);
+    TimeSpan inicioTarde = new TimeSpan(12, 0, 0);
+    TimeSpan inicioNoite = new TimeSpan(18, 0, 0);
+    if (hora >= inicioManha && hora < inicioTarde)
+    {
+        @:Bom dia!
+    }
+    else if (hora >= inicioTarde && hora < inicioNoite)
+    {
+        @:Boa tarde!
+    }
+    else
+    {
+        @:Boa noite!
+    }
+}

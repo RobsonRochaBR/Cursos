@@ -1,0 +1,54 @@
+﻿@using Agenda.Dados
+@model Endereco
+<fieldset>
+    <legend>@(ViewBag.TituloEndereco ?? "Endereco")</legend>
+    <div>
+        <div>@Html.LabelFor(m => m.Logradouro):</div>
+        <div>
+            @Html.TextBoxFor(m => m.Logradouro)
+            @Html.ValidationMessageFor(m => m.Logradouro)
+        </div>
+    </div>
+    <div>
+        <div>@Html.LabelFor(m => m.Numero):</div>
+        <div>
+            @Html.TextBoxFor(m => m.Numero)
+            @Html.ValidationMessageFor(m => m.Numero)
+        </div>
+    </div>
+    <div>
+        <div>@Html.LabelFor(m => m.Complemento):</div>
+        <div>
+            @Html.TextBoxFor(m => m.Complemento)
+            @Html.ValidationMessageFor(m => m.Complemento)
+        </div>
+    </div>
+    <div>
+        <div>@Html.LabelFor(m => m.Bairro):</div>
+        <div>
+            @Html.TextBoxFor(m => m.Bairro)
+            @Html.ValidationMessageFor(m => m.Bairro)
+        </div>
+    </div>
+    <div>
+        <div>@Html.LabelFor(m => m.Cidade):</div>
+        <div>
+            @Html.TextBoxFor(m => m.Cidade)
+            @Html.ValidationMessageFor(m => m.Cidade)
+        </div>
+    </div>
+    <div>
+        <div>@Html.LabelFor(m => m.UF):</div>
+        <div>
+            @Html.TextBoxFor(m => m.UF)
+            @Html.ValidationMessageFor(m => m.UF)
+        </div>
+    </div>
+    <div>
+        <div>@Html.LabelFor(m => m.CEP):</div>
+        <div>
+            @Html.TextBoxFor(m => m.CEP)
+            @Html.ValidationMessageFor(m => m.CEP)
+        </div>
+    </div>
+</fieldset>
